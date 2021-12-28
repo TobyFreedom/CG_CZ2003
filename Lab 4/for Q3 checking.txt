@@ -1,0 +1,32 @@
+#This is to display the cosine curve
+FShape {
+
+# This command is only needed for defining curves
+# For defining surfaces and solids it has to be removed
+polygonizer	"analytical_curve"
+
+geometry FGeometry {
+# The parametric formulae defing the curve. 
+# Change them to other fomulae to see how geometry changes within the parameter domain and 
+# based on the sampling resolution defined below
+definition "x=(-0.35)+u*(0.35-(-0.35));
+			y=(cos(u*12*pi));
+			z=0;"
+
+# Domain for the parameter u. 
+# Explore how the curve changes when you change the domain values.
+parameters [0 1]
+
+# Sampling resolution along the curve. This is how the parameter domain is sampled to calculate the
+# geometry function. 
+# Explore how the shape and the rendering speed change when you reduce or increase the resolution.
+resolution [100]
+
+ } 
+
+appearance FAppearance {
+material FMaterial { 
+# Fixed red color is defined for the curve. 
+diffuseColor "r=1; g=0; b=0;"
+   }    }
+}
